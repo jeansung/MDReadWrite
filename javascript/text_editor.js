@@ -246,7 +246,7 @@ $scope.assembleHTMLPage = function() {
   console.log("at render point: ", jsExampleID);
   var data = {
     name: 'Sample page!',
-    jsID: $scope.jsIDName,
+    jsID: $scope.jsExampleID,
     pieces: $scope.pieces,
     indList: $scope.indVar, 
     indDef: $scope.indVarDef, 
