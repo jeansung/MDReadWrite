@@ -240,7 +240,7 @@ $scope.renderHTMLOption = function () {
 
 
 $scope.assembleHTMLPage = function() {
-  console.log("at render point: ", $scope.jsExampleID);
+  console.log("at render point, the type of this: ", typeof($scope.jsExampleID));
   var data = {
     name: 'Sample page!',
     jsID: $scope.jsExampleID,
@@ -348,7 +348,7 @@ $scope.assembleHTMLPage = function() {
 
   }
   var absurd = Absurd();
-  console.log(this.jsID);
+  console.log(typeof(this.jsID));
   var html = absurd.morph("html").add({
       body: '<p id=\"' + this.jsID 
       + '\"' 
