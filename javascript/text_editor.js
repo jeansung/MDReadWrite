@@ -1,6 +1,6 @@
 var editor = new Quill('#editor-container', {});
 var readyToRender = false;
-var jsFileName = "default.js";
+var jsFileName = "default";
 var jsExampleID = "default"; 
 
 function textDisplayControl($scope) {
@@ -70,13 +70,8 @@ $scope.getParseText = function() {
     }
   }
 
-  console.log("pieces at the end of creation: ", $scope.pieces);
-
-
-
   // Variables to display pieces, need to INIT object as null
   // List of names : {object definition} 
-
     for (var i = 0, len = $scope.indVar.length; i < len; i++)  {
     var currentObject = {
       "name": $scope.indVar[i],
@@ -224,9 +219,9 @@ $scope.checkReadyToRender = function() {
 
 // Assemble the HTML option
 $scope.renderHTMLOption = function () {
-  var constructedJSID = "\"" + jsExampleID + "\"";
+  var constructedJSFileName = "\"" + jsFileName + ".js" + "\"";
+  var constructedHTMLFileName = jsFileName + ".html"
   var constructedBody = $scope.assembleHTMLPage();
-
 
   var result="";   
   $.ajax({
@@ -237,15 +232,9 @@ $scope.renderHTMLOption = function () {
   });
 
   var html1 = result.replace("${body}", constructedBody);
-  var finalHTML = html1.replace("${jsFile}",constructedJSID);
-
-
-
-
-
-
+  var finalHTML = html1.replace("${jsFile}",constructedJSFileName);
   var blob = new Blob([finalHTML], {type: "text/plain;charset=utf-8"});
-  saveAs(blob, "hello world.html");
+  saveAs(blob, constructedHTMLFileName);
 
 };
 
