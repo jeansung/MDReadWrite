@@ -28,9 +28,6 @@ $scope.getParseText = function() {
   $scope.depVarDef = {};
   $scope.constDef = {};
 
-  $scope.jsFileName = "default";
-  $scope.jsExampleID = "default"; 
-
 
   for (var i = 0, len = rawText.length; i < len; i++) {
     currentChar = rawText[i];
@@ -359,6 +356,7 @@ $scope.assembleHTMLPage = function() {
       + "</p>"
       
   }).compile(function(err, html) {
+      console.log("ugh", this.jsID);
       console.log("Error: ", err);
       console.log("HTML: ", html);
   }, data);
