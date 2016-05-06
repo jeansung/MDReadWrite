@@ -109,8 +109,6 @@ $scope.getParseText = function() {
 $scope.loadJSDetails = function () {
   $scope.jsFileName;
   $scope.jsExampleID;
-  console.log("id at this point: ", $scope.jsExampleID);
-
 }
 
 $scope.loadForVariable = function(variableName, variableType) {
@@ -221,7 +219,7 @@ $scope.checkReadyToRender = function() {
 // Assemble the HTML option
 $scope.renderHTMLOption = function () {
   var constructedPageID = "\"" + $scope.jsExampleID + ".js" + "\""
-  var constructedJSFileName = "\"" + $scope.jsFileName + ".js" + "\"";
+  var constructedJSFileName = "\"" + $scope.jsFileName + "\"";
   var constructedHTMLFileName = $scope.jsFileName + ".html";
   var constructedBody = $scope.assembleHTMLPage();
 
@@ -234,7 +232,7 @@ $scope.renderHTMLOption = function () {
   });
 
   var html1 = result.replace("${body}", constructedBody);
-  var html2 = html1.replace("${PAGEID", constructedPageID)
+  var html2 = html1.replace("${PAGEID}", constructedPageID)
   var finalHTML = html2.replace("${jsFile}",constructedJSFileName);
 
 
@@ -245,7 +243,6 @@ $scope.renderHTMLOption = function () {
 
 
 $scope.assembleHTMLPage = function() {
-  console.log("at render point, the type of this: ", typeof($scope.jsExampleID));
   var data = {
     pieces: $scope.pieces,
     indList: $scope.indVar, 
