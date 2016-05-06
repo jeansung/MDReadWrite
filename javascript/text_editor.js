@@ -108,6 +108,7 @@ $scope.getParseText = function() {
 $scope.loadJSDetails = function () {
   jsFileName = $scope.jsFileName;
   jsExampleID = $scope.jsIDName;
+  console.log("id at this point: ", jsExampleID);
 
 }
 
@@ -240,6 +241,7 @@ $scope.renderHTMLOption = function () {
 
 
 $scope.assembleHTMLPage = function() {
+  console.log("at render point: ", jsExampleID);
   var data = {
     name: 'Sample page!',
     jsID: jsExampleID,
