@@ -242,7 +242,7 @@ $scope.renderHTMLOption = function () {
 $scope.assembleHTMLPage = function() {
   var data = {
     name: 'Sample page!',
-    jsID: $scope.jsIDName,
+    jsID: jsExampleID,
     pieces: $scope.pieces,
     indList: $scope.indVar, 
     indDef: $scope.indVarDef, 
