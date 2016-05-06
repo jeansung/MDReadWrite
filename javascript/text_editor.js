@@ -242,7 +242,7 @@ $scope.renderHTMLOption = function () {
 $scope.assembleHTMLPage = function() {
   var data = {
     name: 'Sample page!',
-    jsID: jsExampleID,
+    jsID: $scope.jsIDName;
     pieces: $scope.pieces,
     indList: $scope.indVar, 
     indDef: $scope.indVarDef, 
@@ -348,8 +348,8 @@ $scope.assembleHTMLPage = function() {
   }
   var absurd = Absurd();
   var html = absurd.morph("html").add({
-      body: '<p id=\`' + this.jsID 
-      + '\`' 
+      body: '<p id=\"' + this.jsID 
+      + '\"' 
       + '>'
       + "<% this.parsePieces(this.pieces) %>"
       + "</p>"

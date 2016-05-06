@@ -19,12 +19,6 @@
       "disallowOnlyEmptySpaces": true,
       "helper": "Enter a name for the variable, cannot be empty."
     },
-    "data-value": {
-      "dependencies": {
-        "class": "NULL"
-      }
-
-      },
     "data-format": {
       "dependencies": {
         "class": "NULL"

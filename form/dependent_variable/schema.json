@@ -24,14 +24,10 @@
           "title": "Variable name",
           "required": true              
         },
-        "data-value": {
-          "type": "integer",
-          "title": "data value",
-          "required": true
-          },
         "data-format": {
           "title": "data format",
-          "type": "string"           
+          "type": "string",
+          "default": ""          
         },
         "backing_variable": {
           "type": "string",
