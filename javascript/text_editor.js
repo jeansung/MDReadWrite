@@ -121,20 +121,20 @@ $scope.loadForVariable = function(variableName, variableType) {
   var optionsSourceLink = "";
   var dataObject = {};
 
-  
+  var repoName = "MDReadWrite";
   if (variableType === "ind") {
-    schemaSourceLink = "/form/independent_variable/schema.json";
-    optionsSourceLink = "/form/independent_variable/options.json";
+    schemaSourceLink = repoName + "/form/independent_variable/schema.json";
+    optionsSourceLink = repoName + "/form/independent_variable/options.json";
     dataObject = $scope.indVarDef[variableName];
 
   } else if (variableType == "dep") {
-    schemaSourceLink = "/form/dependent_variable/schema.json";
-    optionsSourceLink ="/form/dependent_variable/options.json";
+    schemaSourceLink = repoName + "/form/dependent_variable/schema.json";
+    optionsSourceLink = repoName + "/form/dependent_variable/options.json";
     dataObject = $scope.depVarDef[variableName];
 
   } else {
-    schemaSourceLink = "/form/constants/schema.json";
-    optionsSourceLink = "/form/constants/options.json";
+    schemaSourceLink = repoName + "/form/constants/schema.json";
+    optionsSourceLink = repoName + "/form/constants/options.json";
     dataObject = $scope.constDef[variableName];
   }
 
