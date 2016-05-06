@@ -121,7 +121,7 @@ $scope.loadForVariable = function(variableName, variableType) {
   var optionsSourceLink = "";
   var dataObject = {};
 
-  var repoName = "MDReadWrite";
+  var repoName = "http://jeansung.github.io/MDReadWrite";
   if (variableType === "ind") {
     schemaSourceLink = repoName + "/form/independent_variable/schema.json";
     optionsSourceLink = repoName + "/form/independent_variable/options.json";
