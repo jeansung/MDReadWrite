@@ -28,6 +28,9 @@ $scope.getParseText = function() {
   $scope.depVarDef = {};
   $scope.constDef = {};
 
+  // To make the p id thing work 
+  $scope.pageID= "";
+
 
   for (var i = 0, len = rawText.length; i < len; i++) {
     currentChar = rawText[i];
@@ -165,7 +168,6 @@ $scope.loadForm = function (dataObject, schemaSourceLink, optionsSourceLink,
 
 
 $scope.saveForm = function(newData, variableName, variableType) {
-  console.log("pieces when I am saving the form: ", $scope.pieces);
   if (variableType === "ind") {
     $scope.indVarDef[variableName] = newData;
   } else if (variableType == "dep") {
@@ -221,6 +223,7 @@ $scope.checkReadyToRender = function() {
 $scope.renderHTMLOption = function () {
   var constructedJSFileName = "\"" + $scope.jsFileName + ".js" + "\"";
   var constructedHTMLFileName = $scope.jsFileName + ".html"
+  $scope.pageID = $scope.jsExampleID;
   var constructedBody = $scope.assembleHTMLPage();
 
   var result="";   
@@ -242,8 +245,7 @@ $scope.renderHTMLOption = function () {
 $scope.assembleHTMLPage = function() {
   console.log("at render point, the type of this: ", typeof($scope.jsExampleID));
   var data = {
-    name: 'Sample page!',
-    jsID: $scope.jsExampleID,
+    jsID: $scope.pageID;
     pieces: $scope.pieces,
     indList: $scope.indVar, 
     indDef: $scope.indVarDef, 
@@ -348,7 +350,6 @@ $scope.assembleHTMLPage = function() {
 
   }
   var absurd = Absurd();
-  console.log(typeof(this.jsID));
   var html = absurd.morph("html").add({
       body: '<p id=\"' + this.jsID 
       + '\"' 
