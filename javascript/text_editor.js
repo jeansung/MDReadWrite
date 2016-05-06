@@ -245,7 +245,7 @@ $scope.renderHTMLOption = function () {
 $scope.assembleHTMLPage = function() {
   console.log("at render point, the type of this: ", typeof($scope.jsExampleID));
   var data = {
-    jsID: $scope.pageID;
+    jsID: $scope.pageID,
     pieces: $scope.pieces,
     indList: $scope.indVar, 
     indDef: $scope.indVarDef, 
