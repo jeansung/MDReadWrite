@@ -349,6 +349,7 @@ $scope.assembleHTMLPage = function() {
 
   }
   var absurd = Absurd();
+  console.log(this.jsID);
   var html = absurd.morph("html").add({
       body: '<p id=\"' + this.jsID 
       + '\"' 
