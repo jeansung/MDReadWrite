@@ -243,7 +243,7 @@ $scope.renderHTMLOption = function () {
 
 
 $scope.assembleHTMLPage = function() {
-  console.log("at render point: ", jsExampleID);
+  console.log("at render point: ", $scope.jsExampleID);
   var data = {
     name: 'Sample page!',
     jsID: $scope.jsExampleID,
