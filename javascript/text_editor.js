@@ -222,7 +222,7 @@ $scope.checkReadyToRender = function() {
 // Assemble the HTML option
 $scope.renderHTMLOption = function () {
   var constructedJSFileName = "\"" + $scope.jsFileName + ".js" + "\"";
-  var constructedHTMLFileName = $scope.jsFileName + ".html"
+  var constructedHTMLFileName = $scope.jsFileName + ".html";
   $scope.pageID = $scope.jsExampleID;
   var constructedBody = $scope.assembleHTMLPage();
 
