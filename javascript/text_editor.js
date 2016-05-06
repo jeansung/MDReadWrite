@@ -359,7 +359,11 @@ $scope.assembleHTMLPage = function() {
   }
   var absurd = Absurd();
   var html = absurd.morph("html").add({
-      body: 'p id=\`' + this.jsID + '\`' + ':'+ "<% this.parsePieces(this.pieces) %>"
+      body: '<p id=\`' + this.jsID 
+      + '\`' 
+      + '>'
+      + "<% this.parsePieces(this.pieces) %>"
+      + "</p>"
       
   }).compile(function(err, html) {
       console.log("Error: ", err);
