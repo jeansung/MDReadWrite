@@ -29,7 +29,6 @@ $scope.getParseText = function() {
   $scope.constDef = {};
 
   // To make the p id thing work 
-  $scope.pageID= "";
 
 
   for (var i = 0, len = rawText.length; i < len; i++) {
@@ -221,9 +220,9 @@ $scope.checkReadyToRender = function() {
 
 // Assemble the HTML option
 $scope.renderHTMLOption = function () {
+  var constructedPageID = "\"" + $scope.jsExampleID + ".js" + "\""
   var constructedJSFileName = "\"" + $scope.jsFileName + ".js" + "\"";
   var constructedHTMLFileName = $scope.jsFileName + ".html";
-  $scope.pageID = $scope.jsExampleID;
   var constructedBody = $scope.assembleHTMLPage();
 
   var result="";   
@@ -235,7 +234,10 @@ $scope.renderHTMLOption = function () {
   });
 
   var html1 = result.replace("${body}", constructedBody);
-  var finalHTML = html1.replace("${jsFile}",constructedJSFileName);
+  var html2 = html1.replace("${PAGEID", constructedPageID)
+  var finalHTML = html2.replace("${jsFile}",constructedJSFileName);
+
+
   var blob = new Blob([finalHTML], {type: "text/plain;charset=utf-8"});
   saveAs(blob, constructedHTMLFileName);
 
@@ -245,7 +247,6 @@ $scope.renderHTMLOption = function () {
 $scope.assembleHTMLPage = function() {
   console.log("at render point, the type of this: ", typeof($scope.jsExampleID));
   var data = {
-    jsID: $scope.pageID,
     pieces: $scope.pieces,
     indList: $scope.indVar, 
     indDef: $scope.indVarDef, 
@@ -351,14 +352,9 @@ $scope.assembleHTMLPage = function() {
   }
   var absurd = Absurd();
   var html = absurd.morph("html").add({
-      body: '<p id=\"' + this.jsID 
-      + '\"' 
-      + '>'
-      + "<% this.parsePieces(this.pieces) %>"
-      + "</p>"
-      
+      body: "<% this.parsePieces(this.pieces) %>"
+    
   }).compile(function(err, html) {
-      console.log("ugh", this.jsID);
       console.log("Error: ", err);
       console.log("HTML: ", html);
   }, data);
