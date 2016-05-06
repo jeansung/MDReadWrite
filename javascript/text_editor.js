@@ -1,7 +1,6 @@
 var editor = new Quill('#editor-container', {});
 var readyToRender = false;
-var jsFileName = "default";
-var jsExampleID = "default"; 
+
 
 function textDisplayControl($scope) {
 $scope.getParseText = function() {
@@ -28,6 +27,9 @@ $scope.getParseText = function() {
   $scope.indVarDef = {};
   $scope.depVarDef = {};
   $scope.constDef = {};
+
+  $scope.jsFileName = "default";
+  $scope.jsExampleID = "default"; 
 
 
   for (var i = 0, len = rawText.length; i < len; i++) {
@@ -106,9 +108,9 @@ $scope.getParseText = function() {
 };
 
 $scope.loadJSDetails = function () {
-  jsFileName = $scope.jsFileName;
-  jsExampleID = $scope.jsIDName;
-  console.log("id at this point: ", jsExampleID);
+  $scope.jsFileName;
+  $scope.jsExampleID;
+  console.log("id at this point: ", $scope.jsExampleID);
 
 }
 
@@ -220,8 +222,8 @@ $scope.checkReadyToRender = function() {
 
 // Assemble the HTML option
 $scope.renderHTMLOption = function () {
-  var constructedJSFileName = "\"" + jsFileName + ".js" + "\"";
-  var constructedHTMLFileName = jsFileName + ".html"
+  var constructedJSFileName = "\"" + $scope.jsFileName + ".js" + "\"";
+  var constructedHTMLFileName = $scope.jsFileName + ".html"
   var constructedBody = $scope.assembleHTMLPage();
 
   var result="";   
@@ -244,7 +246,7 @@ $scope.assembleHTMLPage = function() {
   console.log("at render point: ", jsExampleID);
   var data = {
     name: 'Sample page!',
-    jsID: jsExampleID,
+    jsID: $scope.jsIDName,
     pieces: $scope.pieces,
     indList: $scope.indVar, 
     indDef: $scope.indVarDef, 
@@ -349,7 +351,6 @@ $scope.assembleHTMLPage = function() {
 
   }
   var absurd = Absurd();
-  console.log(this.jsID);
   var html = absurd.morph("html").add({
       body: '<p id=\"' + this.jsID 
       + '\"' 
